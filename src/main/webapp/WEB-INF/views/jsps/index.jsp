@@ -72,10 +72,10 @@ font-size: calc(7% + 0.8vw + 0.8vh);
 /* Large devices (desktops, 992px and up) */
 @media ( min-width : 992px) {
 	.resize {
-		font-size: 2rem;
+		font-size: 1rem;
 	}
 	.header {
-		font-size: 2rem;
+		font-size: 1rem;
 		font-weight: 700;
 	}
 }
@@ -102,9 +102,11 @@ font-size: calc(7% + 0.8vw + 0.8vh);
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
-				<h1 class="float-left" style="padding-top:25px; font-weight:700;"><a href= "#" onclick="location.reload();">Covid - 19 Tracker</a></h1>
+				<h1 class="float-left" style="font-weight:700;"><a href= "#" onclick="location.reload();">Covid-19 Tracker</a></h1>
+				</div>
+				<div class="col">
 				<a href="https://github.com/vinodkmr/Coronovirus_tracker">
-				 <img src="images/GitHub-Mark-120px-plus.png" class="float-right img-fluid"
+				 <img src="images/GitHub-Mark-64px.png" class="float-right img-fluid"
 					alt="click to go to github repo">
 				</a>
 			</div>

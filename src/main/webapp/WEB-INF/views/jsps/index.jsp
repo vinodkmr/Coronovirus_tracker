@@ -6,7 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1" name="viewport"
+	content="width=device-width, initial-scale=1">
 <title>Coronvirus Tracker</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -36,7 +37,50 @@
 	border-width: 1px;
 	padding: 10px;
 }
+
+/* .resize{
+font-size: calc(7% + 0.8vw + 0.8vh);
+} */
+.boldsize {
+	font-size: calc(50% + 1vw + 1vh);
+}
+
+.break {
+	word-wrap: break-word;
+}
+
+@media ( min-width : 320px) {
+	.resize {
+		font-size: 0.8rem;
+	} /*1rem = 16px*/
+	.header {
+		font-size: 0.65rem;
+		font-weight: 700;
+	}
+}
+
+@media ( min-width : 544px) {
+	.resize {
+		font-size: 1rem;
+	} /*1rem = 16px*/
+	.header {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media ( min-width : 992px) {
+	.resize {
+		font-size: 2rem;
+	}
+	.header {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+}
 </style>
+
 
 <script type="text/javascript">
     function showDistrictData(districtId) {
@@ -56,68 +100,67 @@
 <body>
 
 	<div class="container-fluid">
-		<table class="table stick">
-			<thead>
-				<tr>
-					<th scope="col"></th>
-					<th scope="col">State/UT</th>
-					<th scope="col">Confirmed</th>
-					<th scope="col">Active</th>
-					<th scope="col">Recovered</th>
-					<th scope="col">Deceased</th>
-				</tr>
-			</thead>
-		</table>
+		<div class="row">
+			<div class="col">
+				<h1 class="float-left" style="padding-top:25px; font-weight:700;"><a href= "#" onclick="location.reload();">Covid - 19 Tracker</a></h1>
+				<a href="https://github.com/vinodkmr/Coronovirus_tracker">
+				 <img src="images/GitHub-Mark-120px-plus.png" class="float-right img-fluid"
+					alt="click to go to github repo">
+				</a>
+			</div>
+		</div>
+		<div class="row resize">
+			<div class="col-3 header">State/UT</div>
+			<div class="col header">Confirmed</div>
+			<div class="col header">Active</div>
+			<div class="col header">Recovered</div>
+			<div class="col header">Deceased</div>
+
+		</div>
 
 		<c:forEach var="data" items="${dataListByState}" varStatus="dataloop">
-			<div class="row text-monospace" >
-				<div class="col-1">
-					<b> <a href='javascript:void();' id="${dataloop.index}"
-						onclick="showDistrictData(${dataloop.index})" title="Click to show district wise"> > </a></b>
-				</div>
-				<div class="col">${data.state}</div>
-				<div class="col">${data.totalConfirmed}</div>
-				<div class="col">${data.totalActive}</div>
-				<div class="col">${data.totalRecovered}</div>
-				<div class="col">${data.totalDeceased}</div>
+			<div id="${dataloop.index}"
+				onclick="showDistrictData(${dataloop.index})"
+				class="row text-monospace">
+
+				<div class="col-3 resize" title="click to show district wise" >${data.state}</div>
+				<div class="col resize">${data.totalConfirmed}</div>
+				<div class="col resize">${data.totalActive}</div>
+				<div class="col resize">${data.totalRecovered}</div>
+				<div class="col resize">${data.totalDeceased}</div>
 			</div>
 
 
-			<div id="${dataloop.index}districtData"	class="hideDistrictdata">
-					<hr />
-				<p class="text-center text-monospace">
+			<div id="${dataloop.index}districtData" class="hideDistrictdata">
+				<hr />
+				<p class="text-center text-monospace header">
 					<b>District Data Starts</b>
 				</p>
-				
-				<table class="table stick">
-					<thead>
-						<tr>
-							<th scope="col">District</th>
-							<th scope="col">Confirmed</th>
-							<th scope="col">Active</th>
-							<th scope="col">Recovered</th>
-							<th scope="col">Deceased</th>
-						</tr>
-					</thead>
-				</table>
+				<div class="row">
+					<div class="col-3 header">District</div>
+					<div class="col header">Confirmed</div>
+					<div class="col header">Active</div>
+					<div class="col header">Recovered</div>
+					<div class="col header">Deceased</div>
+				</div>
 
-				
 				<c:forEach var="districtData" items="${data.districtData}"
 					varStatus="districtDataloop">
-					<div class="row  text-monospace font-weight-bold">
-						<div class="col">${districtData.district}</div>
-						<div class="col">${districtData.confirmed}</div>
-						<div class="col">${districtData.active}</div>
-						<div class="col">${districtData.recovered}</div>
-						<div class="col">${districtData.deceased}</div>
+					<div class="row  text-monospace">
+						<div class="col-3 resize break">${districtData.district}</div>
+						<div class="col resize">${districtData.confirmed}</div>
+						<div class="col resize">${districtData.active}</div>
+						<div class="col resize">${districtData.recovered}</div>
+						<div class="col resize">${districtData.deceased}</div>
 					</div>
 				</c:forEach>
 				<hr />
-				<p class="text-center text-monospace">
+				<p class="text-center text-monospace header">
 					<b>District Data Ends</b>
 				</p>
 			</div>
 		</c:forEach>
 	</div>
+
 </body>
 </html>

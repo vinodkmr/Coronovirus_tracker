@@ -3,7 +3,6 @@ package com.covid19.stats.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -26,6 +25,9 @@ public class Controller {
 				
 		for(Data data : dataListByState) {
 			List<DistrictData> districtDatas = data.getDistrictData();
+			
+			Collections.sort(districtDatas,(DistrictData d1, DistrictData d2) -> d2.getConfirmed() - d1.getConfirmed());
+			
 			int confirmed = 0;
 			int deceased = 0;
 			int recovered = 0;
@@ -41,14 +43,12 @@ public class Controller {
 			data.setTotalRecovered(recovered);
 			data.setTotalActive(active);
 		}		
+		
+		Collections.sort(dataListByState,(Data d1, Data d2) -> d2.getTotalConfirmed() - d1.getTotalConfirmed());
+
 		model.addAttribute("dataListByState", dataListByState);
 		return "index";
 	}
-	
-	/*
-	 * @GetMapping("/getDistrictDataByState") public String
-	 * getDistrictDataByState(@PathVariable String stateName) { return }
-	 */
-	
+		
 	
 }

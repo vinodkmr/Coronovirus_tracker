@@ -8,6 +8,7 @@
 <head>
 <meta charset="ISO-8859-1" name="viewport"
 	content="width=device-width, initial-scale=1">
+<meta name="description" content="Covid 19 India Live Stats"/>
 <title>Coronvirus Tracker</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"

@@ -3,4 +3,4 @@ This project named Coronovirus Tracker is built using spring boot which displays
 
 This project is live at https://coronovirus-tracker-india.herokuapp.com/
 
-I'm thinking about making this project to have a complete covid stats of the whole world, if you want to collaborate, please contact me.
+This application is hosted on heroku free tier, you gotta wait for 5 seconds for the first request as server will be in sleep mode.
